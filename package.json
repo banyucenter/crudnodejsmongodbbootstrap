@@ -1,0 +1,23 @@
+{
+  "name": "crudmahasiswa",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-mongo-db": "^2.0.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.1.2",
+    "http-errors": "~1.6.2",
+    "method-override": "^2.3.10",
+    "mongodb": "^3.0.7",
+    "morgan": "~1.9.0"
+  }
+}

@@ -1,0 +1,35 @@
+<%- include ../layouts/header.ejs %>
+
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+<h2>Tambah Mahasiswa</h2><br>
+
+<form action="/mahasiswa/add" method="post" name="form1">
+  <div class="form-group ">
+        <label>NIM</label>
+        <input class="form-control" type="text" name="nim" id="nim" value="<%= nim %>" />
+  </div>
+  <div class="form-group ">
+        <label>Nama</label>
+        <input class="form-control" type="text" name="nama" id="nama" value="<%= nama %>" />
+  </div>
+  <div class="form-group ">
+        <label>Email</label>
+        <input class="form-control" type="email" name="email" id="email" value="<%= email %>" />
+  </div>
+  <div class="form-group ">
+        <label>Phone</label>
+        <input class="form-control" type="text" name="phone" id="phone" value="<%= phone %>" />
+  </div>
+  <input type="submit" name="Submit" value="Add" />
+</form>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>

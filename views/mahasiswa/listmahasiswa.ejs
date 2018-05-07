@@ -1,0 +1,49 @@
+<%- include ../layouts/header.ejs %>
+
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+<a class="btn btn-info" href='/mahasiswa/add'>Tambah</a> <br><br>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+        <th>NIM</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Aksi</th>
+    </tr>
+  </thead>
+
+    <% if (data) { %>
+    <% data.forEach(function(mahasiswa){ %>
+        <tr>
+            <td><%= mahasiswa.nim %></td>
+            <td><%= mahasiswa.nama %></td>
+            <td><%= mahasiswa.email %></td>
+            <td><%= mahasiswa.phone %></td>
+            <td>
+                <div style="float:left">
+                    <a class="btn btn-warning" href='/mahasiswa/edit/<%= mahasiswa._id %>'>Edit</a> &nbsp;
+                    <form method="post" action="/mahasiswa/delete/<%= mahasiswa._id %>" style="float:right">
+                        <input class="btn btn-danger" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+                        <input type="hidden" name="_method" value="DELETE" />
+                    </form>
+                </div>
+            </td>
+        </tr>
+    <% }) %>
+    <% } %>
+
+</table>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
+<!-- code by @ipungdev -->
